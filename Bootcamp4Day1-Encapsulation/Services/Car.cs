@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Bootcamp4Day1_Encapsulation
 {
-    public class Bike: Vehicle
+    public class Car: MotorVehicle
     {
+        
     }
 }

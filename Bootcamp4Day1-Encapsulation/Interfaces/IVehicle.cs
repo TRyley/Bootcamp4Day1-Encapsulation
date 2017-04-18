@@ -13,9 +13,9 @@ namespace Bootcamp4Day1_Encapsulation
         void Accelerate(decimal acceleration);
         void Brake();
         void Brake(decimal brake);
-        void StartEngine();
-        void StopEngine();
-        bool IsEngineOn();
+        void Steer(decimal direction);
+        void Reverse();
+        decimal GetCurrentDirection();
     }
 
 }

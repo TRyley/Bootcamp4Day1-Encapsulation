@@ -7,14 +7,14 @@ namespace Test
     [TestClass]
     public class VehicleTest
     {
-        public static Vehicle TestVehicle;
+        public static MotorVehicle TestMotorVehicle;
 
         public object TestCar { get; private set; }
 
         [ClassInitialize]
         public static void Setup(TestContext t)
         {
-            TestVehicle = new Vehicle();
+            TestMotorVehicle = new MotorVehicle();
         }
         [TestMethod]
         public void GetCurrentSpeed_WhenCalled_ReturnsSpeed()
@@ -23,7 +23,7 @@ namespace Test
             decimal expectedSpeed = 0;
             decimal actualSpeed;
             //Act
-                actualSpeed = TestVehicle.GetCurrentSpeed();
+                actualSpeed = TestMotorVehicle.GetCurrentSpeed();
             //Assert
             Assert.AreEqual(expectedSpeed, actualSpeed);
         }
@@ -34,8 +34,8 @@ namespace Test
             decimal expectedSpeed = 1;
             decimal actualSpeed;
 
-            TestVehicle.Accelerate();
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            TestMotorVehicle.Accelerate();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(expectedSpeed, actualSpeed);
         }
@@ -46,8 +46,8 @@ namespace Test
             decimal expectedSpeed = 0;
             decimal actualSpeed;
 
-            TestVehicle.Brake();
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            TestMotorVehicle.Brake();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(expectedSpeed, actualSpeed);
         }
@@ -58,8 +58,8 @@ namespace Test
             decimal expectedSpeed = 0;
             decimal actualSpeed;
 
-            TestVehicle.Brake();
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            TestMotorVehicle.Brake();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(expectedSpeed, actualSpeed);
         }
@@ -72,9 +72,9 @@ namespace Test
 
             for (var i = 0; i < 2; i++)
             {
-                TestVehicle.Accelerate(accel);
+                TestMotorVehicle.Accelerate(accel);
             }
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(expectedSpeed, actualSpeed);
             
@@ -87,11 +87,11 @@ namespace Test
             decimal actualSpeed;
             decimal brake = 0.6M;
 
-            TestVehicle.Accelerate();
+            TestMotorVehicle.Accelerate();
 
-            TestVehicle.Brake(brake);
+            TestMotorVehicle.Brake(brake);
 
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(actualSpeed, expectedSpeed);
         }
@@ -103,14 +103,14 @@ namespace Test
             decimal actualSpeed;
             decimal brake = 0.1M;
 
-            while (TestVehicle.GetCurrentSpeed() != 0)
+            while (TestMotorVehicle.GetCurrentSpeed() != 0)
             {
-                TestVehicle.Brake(brake);
+                TestMotorVehicle.Brake(brake);
             }
 
-            TestVehicle.Brake(brake);
+            TestMotorVehicle.Brake(brake);
 
-            actualSpeed = TestVehicle.GetCurrentSpeed();
+            actualSpeed = TestMotorVehicle.GetCurrentSpeed();
 
             Assert.AreEqual(actualSpeed, expectedSpeed);
         }
@@ -120,9 +120,9 @@ namespace Test
             bool expectedEngineState = true;
             bool actualEngineState;
 
-            TestVehicle.StartEngine();                    
+            TestMotorVehicle.StartEngine();                    
 
-            actualEngineState = TestVehicle.IsEngineOn();
+            actualEngineState = TestMotorVehicle.IsEngineOn();
 
             Assert.AreEqual(expectedEngineState, actualEngineState);
         }
@@ -132,11 +132,38 @@ namespace Test
             bool expectedEngineState = false;
             bool actualEngineState;
 
-            TestVehicle.StopEngine();
+            TestMotorVehicle.StopEngine();
 
-            actualEngineState = TestVehicle.IsEngineOn();
+            actualEngineState = TestMotorVehicle.IsEngineOn();
 
             Assert.AreEqual(expectedEngineState, actualEngineState);
+        }
+
+        [TestMethod]
+        public void Reverse_WhenCalled_Reverses()
+        {
+            decimal expectedSpeed = -2;
+            decimal currentSpeed;
+
+            TestMotorVehicle.Reverse();
+
+            currentSpeed = TestMotorVehicle.GetCurrentSpeed();
+
+            Assert.AreEqual(expectedSpeed, currentSpeed);
+        }
+
+        [TestMethod]
+        public void Steer_WhenCalled_Steers()
+        {
+            //positive for right
+            //negative for left
+            decimal expectedDirection = 10M;
+
+            TestMotorVehicle.Steer(expectedDirection);
+
+            var currentDirection = TestMotorVehicle.GetCurrentDirection();
+
+            Assert.AreEqual(expectedDirection, currentDirection);
         }
     }
 }

@@ -15,17 +15,5 @@ namespace Test
             _testCar = new Car();
         }
 
-        [TestMethod]
-        public void Reverse_WhenCalled_Reverses()
-        {
-            decimal expectedSpeed = -2;
-            decimal currentSpeed;
-
-            _testCar.Reverse();
-
-            currentSpeed = _testCar.GetCurrentSpeed();
-
-            Assert.AreEqual(expectedSpeed, currentSpeed);
-        }
     }
 }

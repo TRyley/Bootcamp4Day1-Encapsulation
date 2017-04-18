@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bike.cs" />
-    <Compile Include="Car.cs" />
-    <Compile Include="Vehicle.cs" />
-    <Compile Include="IVehicle.cs" />
+    <Compile Include="Services\Bicycle.cs" />
+    <Compile Include="Services\Bike.cs" />
+    <Compile Include="Services\Boat.cs" />
+    <Compile Include="Services\Car.cs" />
+    <Compile Include="Services\MotorVehicle.cs" />
+    <Compile Include="Interfaces\IVehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
