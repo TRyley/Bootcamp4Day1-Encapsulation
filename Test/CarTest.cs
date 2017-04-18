@@ -12,7 +12,8 @@ namespace Test
         [ClassInitialize]
         public static void Setup(TestContext t)
         {
-            _testCar = new Car();
+            Engine engine = new Engine();
+            _testCar = new Car(engine);
         }
 
     }

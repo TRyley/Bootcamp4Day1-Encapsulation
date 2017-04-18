@@ -13,18 +13,19 @@ namespace Bootcamp4Day1_Encapsulation
         private bool _engineStatus;
         private const decimal _reverseSpeed = -2;
         private decimal _direction;
+        private Engine _engine;
 
+        public MotorVehicle(Engine engine)
+        {
+            _engine = engine;
+        }
         public decimal GetCurrentSpeed()
         {
             return _speed;
         }
-
         public void Accelerate()
         {
-            var currentSpeed = GetCurrentSpeed();
-            decimal newSpeed = currentSpeed;
-            newSpeed += _acceleration;
-            _speed = newSpeed;
+            _speed = _engine.Accelerate(_speed);
         }
         public void Accelerate(decimal acceleration)
         {
@@ -86,6 +87,10 @@ namespace Bootcamp4Day1_Encapsulation
         public decimal GetCurrentDirection()
         {
             return _direction;
+        }
+        public decimal GetEngineSize()
+        {
+            return _engine.GetEngineSize();
         }
     }
 }

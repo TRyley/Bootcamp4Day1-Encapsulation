@@ -47,14 +47,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Services\Bicycle.cs" />
-    <Compile Include="Services\Bike.cs" />
-    <Compile Include="Services\Boat.cs" />
-    <Compile Include="Services\Car.cs" />
-    <Compile Include="Services\MotorVehicle.cs" />
-    <Compile Include="Interfaces\IVehicle.cs" />
+    <Compile Include="Bicycle.cs" />
+    <Compile Include="Bike.cs" />
+    <Compile Include="Boat.cs" />
+    <Compile Include="Car.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="MotorVehicle.cs" />
+    <Compile Include="IVehicle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tyres.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -14,7 +14,8 @@ namespace Test
         [ClassInitialize]
         public static void Setup(TestContext t)
         {
-            TestMotorVehicle = new MotorVehicle();
+            Engine engine = new Engine();
+            TestMotorVehicle = new MotorVehicle(engine);
         }
         [TestMethod]
         public void GetCurrentSpeed_WhenCalled_ReturnsSpeed()

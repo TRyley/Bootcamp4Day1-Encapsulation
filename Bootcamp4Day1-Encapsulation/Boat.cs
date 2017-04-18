@@ -2,6 +2,6 @@
 {
     public class Boat : MotorVehicle
     {
-        
+        public Boat(Engine engine) : base(engine) { }
     }
 }
